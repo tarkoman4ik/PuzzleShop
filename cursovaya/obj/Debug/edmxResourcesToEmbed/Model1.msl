@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Database1ModelContainer" CdmEntityContainer="Database1Entities1">
+    <EntitySetMapping Name="Cart">
+      <EntityTypeMapping TypeName="Database1Model.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="id_cart" ColumnName="id_cart" />
+          <ScalarProperty Name="id_puzzle" ColumnName="id_puzzle" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="in_usercart" ColumnName="in_usercart" />
+          <ScalarProperty Name="id_purchase" ColumnName="id_purchase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Company_List">
+      <EntityTypeMapping TypeName="Database1Model.Company_List">
+        <MappingFragment StoreEntitySet="Company_List">
+          <ScalarProperty Name="id_company" ColumnName="id_company" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="Database1Model.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="id_country" ColumnName="id_country" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Difficulty">
+      <EntityTypeMapping TypeName="Database1Model.Difficulty">
+        <MappingFragment StoreEntitySet="Difficulty">
+          <ScalarProperty Name="id_difficulty" ColumnName="id_difficulty" />
+          <ScalarProperty Name="difficulty_lvl" ColumnName="difficulty_lvl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purchase">
+      <EntityTypeMapping TypeName="Database1Model.Purchase">
+        <MappingFragment StoreEntitySet="Purchase">
+          <ScalarProperty Name="id_purchase" ColumnName="id_purchase" />
+          <ScalarProperty Name="date_purchase" ColumnName="date_purchase" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="mail_address" ColumnName="mail_address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Puzzle">
+      <EntityTypeMapping TypeName="Database1Model.Puzzle">
+        <MappingFragment StoreEntitySet="Puzzle">
+          <ScalarProperty Name="id_puzzle" ColumnName="id_puzzle" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="id_difficulty" ColumnName="id_difficulty" />
+          <ScalarProperty Name="id_company" ColumnName="id_company" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Types">
+      <EntityTypeMapping TypeName="Database1Model.Types">
+        <MappingFragment StoreEntitySet="Types">
+          <ScalarProperty Name="id_type" ColumnName="id_type" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

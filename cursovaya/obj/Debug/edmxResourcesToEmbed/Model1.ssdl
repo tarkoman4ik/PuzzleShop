@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Database1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="id_cart" />
+    </Key>
+    <Property Name="id_cart" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_puzzle" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="in_usercart" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="id_purchase" Type="int" />
+  </EntityType>
+  <EntityType Name="Company_List">
+    <Key>
+      <PropertyRef Name="id_company" />
+    </Key>
+    <Property Name="id_company" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="id_country" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="id_country" />
+    </Key>
+    <Property Name="id_country" Type="int" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Difficulty">
+    <Key>
+      <PropertyRef Name="id_difficulty" />
+    </Key>
+    <Property Name="id_difficulty" Type="int" Nullable="false" />
+    <Property Name="difficulty_lvl" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Purchase">
+    <Key>
+      <PropertyRef Name="id_purchase" />
+    </Key>
+    <Property Name="id_purchase" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="date_purchase" Type="datetime" Nullable="false" />
+    <Property Name="firstName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="phone_number" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="mail_address" Type="nvarchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Puzzle">
+    <Key>
+      <PropertyRef Name="id_puzzle" />
+    </Key>
+    <Property Name="id_puzzle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="description" Type="ntext" Nullable="false" />
+    <Property Name="id_difficulty" Type="int" Nullable="false" />
+    <Property Name="id_company" Type="int" Nullable="false" />
+    <Property Name="amount" Type="int" Nullable="false" />
+    <Property Name="cost" Type="int" Nullable="false" />
+    <Property Name="id_type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Types">
+    <Key>
+      <PropertyRef Name="id_type" />
+    </Key>
+    <Property Name="id_type" Type="int" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <Association Name="Cart_fk0">
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puzzle">
+        <PropertyRef Name="id_puzzle" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="id_puzzle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Cart_fk1">
+    <End Role="Purchase" Type="Self.Purchase" Multiplicity="0..1" />
+    <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Purchase">
+        <PropertyRef Name="id_purchase" />
+      </Principal>
+      <Dependent Role="Cart">
+        <PropertyRef Name="id_purchase" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Company_List_fk0">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Company_List" Type="Self.Company_List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="id_country" />
+      </Principal>
+      <Dependent Role="Company_List">
+        <PropertyRef Name="id_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Puzzle_fk0">
+    <End Role="Difficulty" Type="Self.Difficulty" Multiplicity="1" />
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Difficulty">
+        <PropertyRef Name="id_difficulty" />
+      </Principal>
+      <Dependent Role="Puzzle">
+        <PropertyRef Name="id_difficulty" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Puzzle_fk1">
+    <End Role="Company_List" Type="Self.Company_List" Multiplicity="1" />
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Company_List">
+        <PropertyRef Name="id_company" />
+      </Principal>
+      <Dependent Role="Puzzle">
+        <PropertyRef Name="id_company" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Puzzle_fk2">
+    <End Role="Types" Type="Self.Types" Multiplicity="1" />
+    <End Role="Puzzle" Type="Self.Puzzle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Types">
+        <PropertyRef Name="id_type" />
+      </Principal>
+      <Dependent Role="Puzzle">
+        <PropertyRef Name="id_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Database1ModelContainer">
+    <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Company_List" EntityType="Self.Company_List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Difficulty" EntityType="Self.Difficulty" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Purchase" EntityType="Self.Purchase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Puzzle" EntityType="Self.Puzzle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Types" EntityType="Self.Types" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Cart_fk0" Association="Self.Cart_fk0">
+      <End Role="Puzzle" EntitySet="Puzzle" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="Cart_fk1" Association="Self.Cart_fk1">
+      <End Role="Purchase" EntitySet="Purchase" />
+      <End Role="Cart" EntitySet="Cart" />
+    </AssociationSet>
+    <AssociationSet Name="Company_List_fk0" Association="Self.Company_List_fk0">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Company_List" EntitySet="Company_List" />
+    </AssociationSet>
+    <AssociationSet Name="Puzzle_fk0" Association="Self.Puzzle_fk0">
+      <End Role="Difficulty" EntitySet="Difficulty" />
+      <End Role="Puzzle" EntitySet="Puzzle" />
+    </AssociationSet>
+    <AssociationSet Name="Puzzle_fk1" Association="Self.Puzzle_fk1">
+      <End Role="Company_List" EntitySet="Company_List" />
+      <End Role="Puzzle" EntitySet="Puzzle" />
+    </AssociationSet>
+    <AssociationSet Name="Puzzle_fk2" Association="Self.Puzzle_fk2">
+      <End Role="Types" EntitySet="Types" />
+      <End Role="Puzzle" EntitySet="Puzzle" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

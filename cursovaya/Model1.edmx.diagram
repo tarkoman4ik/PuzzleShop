@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f92bab808d64430e9e0bfe364687d344" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.Cart" Width="1.5" PointX="7.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Company_List" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Countries" Width="1.5" PointX="2.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Difficulty" Width="1.5" PointX="4" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Purchase" Width="1.5" PointX="8.125" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Puzzle" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.Types" Width="1.5" PointX="6.25" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="Database1Model.Cart_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Cart_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Company_List_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Puzzle_fk1" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Puzzle_fk0" ManuallyRouted="false" />
+        <AssociationConnector Association="Database1Model.Puzzle_fk2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
